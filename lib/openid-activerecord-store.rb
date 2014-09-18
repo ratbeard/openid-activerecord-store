@@ -1,0 +1,1 @@
+require 'open_id/active_record/store'
