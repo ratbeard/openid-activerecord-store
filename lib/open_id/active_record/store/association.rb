@@ -1,10 +1,10 @@
 require 'openid/association'
 require 'time'
 
-module Openid
+module OpenId
   module ActiveRecord
     module Store
-      class Association < ActiveRecord::Base
+      class Association < ::ActiveRecord::Base
         set_table_name 'open_id_associations'
 
         def from_record
