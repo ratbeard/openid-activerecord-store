@@ -1,10 +1,13 @@
-require 'active_record/generators'
+require 'rails/generators/migration'
+require 'rails/generators/active_record'
 
 module OpenId
   module ActiveRecord
     module Store
       class StoreGenerator < ::ActiveRecord::Generators::Base
         desc "Generates the migrations for an open-id server"
+
+        include Rails::Generators::Migration
 
         def self.source_root
           @source_root ||= File.expand_path('../templates', __FILE__)
