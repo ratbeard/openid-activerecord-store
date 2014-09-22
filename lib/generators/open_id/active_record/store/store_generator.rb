@@ -1,7 +1,9 @@
+require 'active_record/generators'
+
 module OpenId
   module ActiveRecord
     module Store
-      class StoreGenerator < ActiveRecord::Generators::Base
+      class StoreGenerator < ::ActiveRecord::Generators::Base
         desc "Generates the migrations for an open-id server"
 
         def self.source_root
