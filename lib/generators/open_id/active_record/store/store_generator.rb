@@ -6,8 +6,6 @@ module OpenId
       class StoreGenerator < ::ActiveRecord::Generators::Base
         desc "Generates the migrations for an open-id server"
 
-        include Rails::Generators::Migration
-
         def self.source_root
           @source_root ||= File.expand_path('../templates', __FILE__)
         end
