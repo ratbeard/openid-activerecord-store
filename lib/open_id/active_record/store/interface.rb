@@ -19,21 +19,21 @@ module OpenId
 
         def get_association(server_url, handle=nil)
           assocs = if handle.blank?
-            Association.find_all_by_server_url(server_url)
+            Association.where(server_url: server_url)
           else
-            Association.find_all_by_server_url_and_handle(server_url, handle)
+            Association.where(server_url: server_url, handle: handle)
           end
 
-          assocs.reverse.each do |assoc|
+          return nil if assocs.blank?
+
+          assocs.to_a.reverse.each do |assoc|
             a = assoc.from_record
             if a.expires_in == 0
               assoc.destroy
             else
               return a
             end
-          end if assocs.any?
-
-          return nil
+          end
         end
 
         def remove_association(server_url, handle)
