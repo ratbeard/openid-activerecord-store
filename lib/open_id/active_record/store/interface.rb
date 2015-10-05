@@ -34,6 +34,8 @@ module OpenId
               return a
             end
           end
+
+          nil
         end
 
         def remove_association(server_url, handle)
